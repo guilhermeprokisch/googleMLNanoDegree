@@ -12088,7 +12088,7 @@ Standard deviation of prices: $165,171.13
 <span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="kn">import</span> <span class="n">train_test_split</span> <span class="k">as</span> <span class="n">tts</span>
 
 <span class="c1"># TODO: Shuffle and split the data into training and testing subsets</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">tts</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">prices</span><span class="p">,</span><span class="n">test_size</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">tts</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">prices</span><span class="p">,</span><span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
 <span class="c1"># Success</span>
 <span class="k">print</span> <span class="s2">&quot;Training and testing split was successful.&quot;</span>
@@ -13800,7 +13800,7 @@ WYNd9kafAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> The Grid Search is a technique that consists in a search of best values of the hyperparameters given some range of hiper-parametrical space. This can be applied to tune the model for the specific nature of data and problems. The Grid Search test the model many times with a combination of hiperparameters to found the best choice in the given range.</p>
+<p><strong>Answer: </strong> The Grid Search is a technique that consists in a search of best values of the hyperparameters given some range of hiper-parametrical space. This can be applied to tune the model for the specific nature of data and problems. The Grid Search test the model many times with all combination of hiperparameters to found the best in relation of a given score function and return the combination with highest score.</p>
 
 </div>
 </div>
@@ -13877,7 +13877,7 @@ WYNd9kafAAAAAElFTkSuQmCC
 
     <span class="c1"># TODO: Create a dictionary for the parameter &#39;max_depth&#39; with a range from 1 to 10</span>
     <span class="n">params</span><span class="o">=</span><span class="p">{}</span>
-    <span class="n">params</span><span class="p">[</span><span class="s1">&#39;max_depth&#39;</span><span class="p">]</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">params</span><span class="p">[</span><span class="s1">&#39;max_depth&#39;</span><span class="p">]</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
 
     <span class="c1"># TODO: Transform &#39;performance_metric&#39; into a scoring function using &#39;make_scorer&#39; </span>
     <span class="n">scoring_fnc</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">performance_metric</span><span class="p">)</span>
@@ -14043,11 +14043,20 @@ Predicted selling price for Client 3&#39;s home: $940,800.00
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
-<p>Predicted selling price for Client 1's home: $323,400.00
-Predicted selling price for Client 2's home: $178,500.00
-Predicted selling price for Client 3's home: $940,800.00
-The prices seems rasonable.</p>
-<p>To have more information about the houses in training (See bellow) I take  statistics of features. I can realize that the house come from the most big house( with more or less 6 rooms, and from top Household net worth ). This means that the boston house of training data look more like client 3. This explain why pre predicted for client 1 and 2 is low compared to statics we took in Data Exploration Section.</p>
+<p>Predicted selling price for Client 1's home: \$ 323,400.00
+Predicted selling price for Client 2's home: \$ 178,500.00
+Predicted selling price for Client 3's home: \$ 940,800.00</p>
+<p>The prices seems rasonable.</p>
+<p>To have more information about the houses in training, I take  statistics of features.</p>
+<p>Mean RM: 6.24
+Mean LSTAT: 12.9
+Mean PTRATIO: 18.51
+Median RM: 6.18
+Median LSTAT: 11.69
+Median PTRATIO: 19.1</p>
+<p>We can realize that the houses come from the most big house( with more or less 6 rooms, and from top Household net worth ). This means that the boston houses of training data look more like client 3.</p>
+<p>This explain why predicted prices for client 1 and 2 is low compared to statics we took in Data Exploration Section and for client 3 we have a more training data rasonable.</p>
+<p>Maybe this could say that the houses 1 and 2 are building after 1978 in another market context. And the house 3 are a old house more likely of training data age.</p>
 
 </div>
 </div>
